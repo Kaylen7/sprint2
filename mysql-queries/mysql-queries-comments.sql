@@ -288,33 +288,19 @@ AND producto.precio > (
     WHERE fabricante.nombre = 'Asus'
     );
 
-# BASE DE DADES UNIVERSIDAD
 USE universidad;
 # PART 1
 # 1
-SELECT nombre, apellido1, apellido2
-FROM (
-    SELECT DISTINCT persona.nif,
-                    persona.nombre,
-                    persona.apellido1,
-                    persona.apellido2
-    FROM persona
-    JOIN alumno_se_matricula_asignatura
-    ON persona.id = alumno_se_matricula_asignatura.id_alumno
-) AS personas_unicas
+SELECT DISTINCT nombre, apellido1, apellido2
+FROM persona
+WHERE tipo = 'alumno'
 ORDER BY apellido1 ASC, apellido2 ASC, nombre ASC;
 
 # 2
 SELECT DISTINCT nombre, apellido1, apellido2, telefono
 FROM persona
-JOIN alumno_se_matricula_asignatura
-ON persona.id = alumno_se_matricula_asignatura.id_alumno
-WHERE telefono IS NULL;
-
-/*
- 3. Retorna el llistat dels/les alumnes que van néixer en 1999.
- >> Sembla que no hi ha cap alumne del 99.
-*/
+WHERE tipo = 'alumno'
+  AND telefono IS NULL;
 
 # 3
 SELECT DISTINCT nombre,
@@ -322,9 +308,8 @@ SELECT DISTINCT nombre,
        apellido2,
        fecha_nacimiento
 FROM persona
-JOIN alumno_se_matricula_asignatura
-ON persona.id = alumno_se_matricula_asignatura.id_alumno
-WHERE fecha_nacimiento BETWEEN '1999-01-01' AND '1999-12-31';
+WHERE tipo='alumno'
+    AND fecha_nacimiento BETWEEN '1999-01-01' AND '1999-12-31';
 
 # 4
 SELECT DISTINCT nombre,
@@ -348,9 +333,10 @@ WHERE grado.id = 7
 AND asignatura.cuatrimestre = 1;
 
 # 6
-SELECT DISTINCT persona.nombre,
+SELECT DISTINCT
        persona.apellido1,
        persona.apellido2,
+       persona.nombre,
        departamento.nombre
 FROM persona
 JOIN profesor
@@ -408,7 +394,6 @@ ON pf.id_departamento = dep.id
 ORDER BY dep.nombre DESC, p.apellido1 DESC, p.apellido2 DESC, p.nombre;
 
 #[11] 2
-/* En principi és una mica redundant, perquè el valor id_departamento no pot ser null a la taula de profesor, però crec que si n'hi hagués, ho cercaria així.*/
 SELECT DISTINCT p.nombre,
                 p.apellido1,
                 p.apellido2
@@ -458,15 +443,12 @@ HAVING COUNT(ama.id_curso_escolar) = 0;
 #[16] 1
 SELECT COUNT(DISTINCT p.id)
 FROM persona p
-JOIN alumno_se_matricula_asignatura ama
-ON p.id = ama.id_alumno;
+WHERE tipo = 'alumno';
 
 #[17] 2
 SELECT COUNT(DISTINCT p.id)
 FROM persona p
-JOIN alumno_se_matricula_asignatura ama
-ON p.id = ama.id_alumno
-WHERE p.fecha_nacimiento BETWEEN '1999-01-01' AND '1999-12-31';
+WHERE p.tipo = 'alumno' AND p.fecha_nacimiento BETWEEN '1999-01-01' AND '1999-12-31';
 
 #[18] 3
 SELECT DISTINCT dep.nombre AS departamento,
