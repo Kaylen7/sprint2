@@ -47,15 +47,11 @@ FROM producto;
 
 # 11
 SELECT codigo_fabricante
-FROM producto
-JOIN fabricante
-ON fabricante.codigo = producto.codigo_fabricante;
+FROM producto;
 
 # 12
 SELECT codigo_fabricante
 FROM producto
-JOIN fabricante
-ON fabricante.codigo = producto.codigo_fabricante
 GROUP BY codigo_fabricante;
 
 # 13
@@ -330,6 +326,7 @@ FROM asignatura
 JOIN grado
 ON asignatura.id_grado = grado.id
 WHERE grado.id = 7
+  AND asignatura.curso = 3
 AND asignatura.cuatrimestre = 1;
 
 # 6
@@ -387,10 +384,11 @@ SELECT dep.nombre,
     p.apellido1,
     p.apellido2
 FROM persona p
-JOIN profesor pf
+LEFT JOIN profesor pf
 ON p.id = pf.id_profesor
 LEFT JOIN departamento dep
 ON pf.id_departamento = dep.id
+WHERE p.tipo = 'profesor'
 ORDER BY dep.nombre DESC, p.apellido1 DESC, p.apellido2 DESC, p.nombre;
 
 #[11] 2
@@ -398,11 +396,12 @@ SELECT DISTINCT p.nombre,
                 p.apellido1,
                 p.apellido2
 FROM persona p
-JOIN profesor pf
+LEFT JOIN profesor pf
 ON p.id = pf.id_profesor
 LEFT JOIN departamento dep
 ON pf.id_departamento = dep.id
-WHERE pf.id_departamento IS NULL;
+WHERE pf.id_departamento IS NULL
+AND p.tipo='profesor';
 
 #[12] 3
 SELECT dep.nombre
@@ -414,11 +413,10 @@ WHERE profesor.id_departamento IS NULL;
 #[13] 4
 SELECT DISTINCT CONCAT(p.nombre,' ',p.apellido1, ' ', p.apellido2) AS profesors_sense_asignatura
 FROM persona p
-JOIN profesor
 LEFT JOIN asignatura
-ON profesor.id_profesor = asignatura.id_profesor
-WHERE asignatura.nombre IS NULL
-GROUP BY profesors_sense_asignatura;
+    ON asignatura.id_profesor = p.id
+WHERE p.tipo = 'profesor'
+AND asignatura.nombre IS NULL;
 
 #[14] 5
 SELECT asignatura.nombre AS asignaturas_sin_profesor
