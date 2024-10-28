@@ -10,7 +10,7 @@ Activitats per practicar amb MySQL i MongoDB.
 — `mongodb-estructura/`  
 Conté tant carpeta `optica-json-files` amb el `json` dividit per col·leccions, com l'arxiu complert `optica-estructura.json`.  
 
->[!TIP] **Nota**  
+>[!TIP]
 > També hi he afegit l'script `bulkImport.sh`. En cas que vulguis fer l'importació de la base de dades amb `mongoimport` potser t'interessa.  
 > [Més avall](#-BulkImport) t'explico com es pot fer servir. 👇  
 
