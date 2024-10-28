@@ -1,0 +1,90 @@
+[
+	{
+    "_id": "client-1",
+    "nom": "Joan Garcia",
+    "adreca": [
+      {
+        "carrer": "Gran Via",
+        "numero": 21,
+        "codi_postal": "08001",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 654321789,
+    "email": "joan.garcia@example.com",
+    "data_registre": {"$date": "2023-10-01T00:00:00Z"},
+    "compres": [{"id": "ulleres-1", "data": {"$date": "2023-10-01T00:00:00Z"}}],
+    "recomanat_per": "empleat-1"
+  },
+  {
+    "_id": "client-2",
+    "nom": "Ana Perez",
+    "adreca": [
+      {
+        "carrer": "Carrer de Pau Claris",
+        "numero": 33,
+        "codi_postal": "08010",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 654123456,
+    "email": "ana.perez@example.com",
+    "data_registre": {"$date": "2023-09-15T00:00:00Z"},
+    "compres": [{"id": "ulleres-1", "data": {"$date": "2023-09-10T00:00:00Z"}}],
+    "recomanat_per": "client-1"
+  },
+  {
+    "_id": "client-3",
+    "nom": "Luis Alvarez",
+    "adreca": [
+      {
+        "carrer": "Carrer de Casanova",
+        "numero": 88,
+        "codi_postal": "08011",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 678123456,
+    "email": "luis.alvarez@example.com",
+    "data_registre": {"$date": "2023-08-20T00:00:00Z"},
+    "compres": [{"id": "ulleres-3", "data": {"$date": "2023-08-15T00:00:00Z"}}]
+  },
+  {
+    "_id": "client-4",
+    "nom": "Maria Martinez",
+    "adreca": [
+      {
+        "carrer": "Carrer de Pau",
+        "numero": 12,
+        "codi_postal": "08012",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 654321987,
+    "email": "maria.martinez@example.com",
+    "data_registre": {"$date": "2023-07-10T00:00:00Z"},
+    "compres": [{"id": "ulleres-4", "data": {"$date": "2023-07-25T00:00:00Z"}}, {"id": "ulleres-1", "data": {"$date":"2023-09-10T00:00:00Z"}}]
+  },
+  {
+    "_id": "client-5",
+    "nom": "Carlos Gomez",
+    "adreca": [
+      {
+        "carrer": "Carrer de València",
+        "numero": 90,
+        "codi_postal": "08015",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 612345678,
+    "email": "carlos.gomez@example.com",
+    "data_registre": {"$date": "2023-06-05T00:00:00Z"},
+    "compres": [{"id": "ulleres-5", "data": {"$date": "2023-06-30T00:00:00Z"}}],
+    "recomanat_per": "empleat-2"
+  }
+]

@@ -1,0 +1,84 @@
+[
+	{
+    "_id": "proveidor-1",
+    "nom": "Vision Inc.",
+    "adreca": [
+      {
+        "carrer": "Gran Via", 
+        "numero": 125, 
+        "pis": 3, 
+        "porta": 3, 
+        "codi_postal": "08012",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "933456789",
+    "fax": "933456780",
+    "nif": "A1234567Q"
+  },
+  {
+    "_id": "proveidor-2",
+    "nom": "Optica Universal",
+    "adreca": [
+      {
+        "carrer": "Diagonal",
+        "numero": 67,
+        "codi_postal": "08010",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "934567890",
+    "fax": "934567881",
+    "nif": "B2345678Q"
+  },
+  {
+    "_id": "proveidor-3",
+    "nom": "Mundo Vision",
+    "adreca": [
+      {
+        "carrer": "Passeig de Gracia",
+        "numero": 44,
+        "codi_postal": "08007",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "932345678",
+    "fax": "932345679",
+    "nif": "C3456789Q"
+  },
+  {
+    "_id": "proveidor-4",
+    "nom": "Lentes Global",
+    "adreca": [
+      {
+        "carrer": "Ronda de Sant Pere",
+        "numero": 98,
+        "codi_postal": "08010",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "936789012",
+    "fax": "936789013",
+    "nif": "D4567890Q"
+  },
+  {
+    "_id": "proveidor-5",
+    "nom": "Optica Mediterranea",
+    "adreca": [
+      {
+        "carrer": "Av. Paral·lel",
+        "numero": 54,
+        "codi_postal": "08015",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "937890123",
+    "fax": "937890124",
+    "nif": "E5678901Q"
+  }
+]

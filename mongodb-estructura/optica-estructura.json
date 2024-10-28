@@ -1,0 +1,284 @@
+[
+[
+  {
+    "_id": "client-1",
+    "nom": "Joan Garcia",
+    "adreca": [
+      {
+        "carrer": "Gran Via",
+        "numero": 21,
+        "codi_postal": "08001",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 654321789,
+    "email": "joan.garcia@example.com",
+    "data_registre": {"$date": "2023-10-01T00:00:00Z"},
+    "compres": [{"id": "ulleres-1", "data": {"$date": "2023-10-01T00:00:00Z"}}],
+    "recomanat_per": "empleat-1"
+  },
+  {
+    "_id": "client-2",
+    "nom": "Ana Perez",
+    "adreca": [
+      {
+        "carrer": "Carrer de Pau Claris",
+        "numero": 33,
+        "codi_postal": "08010",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 654123456,
+    "email": "ana.perez@example.com",
+    "data_registre": {"$date": "2023-09-15T00:00:00Z"},
+    "compres": [{"id": "ulleres-1", "data": {"$date": "2023-09-10T00:00:00Z"}}],
+    "recomanat_per": "client-1"
+  },
+  {
+    "_id": "client-3",
+    "nom": "Luis Alvarez",
+    "adreca": [
+      {
+        "carrer": "Carrer de Casanova",
+        "numero": 88,
+        "codi_postal": "08011",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 678123456,
+    "email": "luis.alvarez@example.com",
+    "data_registre": {"$date": "2023-08-20T00:00:00Z"},
+    "compres": [{"id": "ulleres-3", "data": {"$date": "2023-08-15T00:00:00Z"}}]
+  },
+  {
+    "_id": "client-4",
+    "nom": "Maria Martinez",
+    "adreca": [
+      {
+        "carrer": "Carrer de Pau",
+        "numero": 12,
+        "codi_postal": "08012",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 654321987,
+    "email": "maria.martinez@example.com",
+    "data_registre": {"$date": "2023-07-10T00:00:00Z"},
+    "compres": [{"id": "ulleres-4", "data": {"$date": "2023-07-25T00:00:00Z"}}, {"id": "ulleres-1", "data": {"$date":"2023-09-10T00:00:00Z"}}]
+  },
+  {
+    "_id": "client-5",
+    "nom": "Carlos Gomez",
+    "adreca": [
+      {
+        "carrer": "Carrer de València",
+        "numero": 90,
+        "codi_postal": "08015",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": 612345678,
+    "email": "carlos.gomez@example.com",
+    "data_registre": {"$date": "2023-06-05T00:00:00Z"},
+    "compres": [{"id": "ulleres-5", "data": {"$date": "2023-06-30T00:00:00Z"}}],
+    "recomanat_per": "empleat-2"
+  }
+],
+[
+  {
+    "_id": "empleat-1",
+    "nom": "Marc Sanchez",
+    "adreca": [{"carrer": "Carrer de Pau Claris", "numero": 30, "codi_postal": "08010", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "658741239",
+    "email": "marc.sanchez@example.com",
+    "dni": "1234567N",
+    "data_registre": {"$date": "2020-03-15T18:30:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-1", "id-client": "client-1", "preu": 120, "data": "2023-10-01T00:00:00Z"}]
+  },
+  {
+    "_id": "empleat-2",
+    "nom": "Laura Jimenez",
+    "adreca": [{"carrer": "Carrer d'Arago", "numero": 45, "codi_postal": "08015", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "653212789",
+    "email": "laura.jimenez@example.com",
+    "dni": "2345678N",
+    "data_registre": {"$date": "2021-06-22T00:00:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-1", "id-client": "client-2", "preu": 120, "data": "2023-09-10T00:00:00Z"}]
+  },
+  {
+    "_id": "empleat-3",
+    "nom": "Jordi Ruiz",
+    "adreca": [{"carrer": "Carrer de Balmes", "numero": 120, "codi_postal": "08008", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "651234567",
+    "email": "jordi.ruiz@example.com",
+    "dni": "3456789N",
+    "data_registre": {"$date": "2020-11-01T00:00:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-3", "id-client": "client-3", "preu": 150, "data": "2023-08-15T00:00:00Z"}]
+  },
+  {
+    "_id": "empleat-4",
+    "nom": "Ana Lopez",
+    "adreca": [{"carrer": "Carrer de Girona", "numero": 75, "codi_postal": "08009", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "654321789",
+    "email": "ana.lopez@example.com",
+    "dni": "4567890N",
+    "data_registre": {"$date": "2019-05-15T00:00:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-4", "id-client": "client-4", "preu": 180, "data": "2023-07-25T00:00:00Z"}, {"id-ulleres": "ulleres-1", "id-client": "client-4", "preu": 120, "data": "2023-09-10T00:00:00Z"}]
+  },
+  {
+    "_id": "empleat-5",
+    "nom": "Pedro Garcia",
+    "adreca": [{"carrer": "Carrer del Consell de Cent", "numero": 98, "codi_postal": "08011", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "657891234",
+    "email": "pedro.garcia@example.com",
+    "dni": "5678901N",
+    "data_registre": {"$date": "2018-02-20T00:00:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-5", "id-client": "client-5", "preu": 200, "data": "2023-06-30T00:00:00Z"}]
+  }
+],
+[
+  {
+    "_id": "proveidor-1",
+    "nom": "Vision Inc.",
+    "adreca": [
+      {
+        "carrer": "Gran Via", 
+        "numero": 125, 
+        "pis": 3, 
+        "porta": 3, 
+        "codi_postal": "08012",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "933456789",
+    "fax": "933456780",
+    "nif": "A1234567Q"
+  },
+  {
+    "_id": "proveidor-2",
+    "nom": "Optica Universal",
+    "adreca": [
+      {
+        "carrer": "Diagonal",
+        "numero": 67,
+        "codi_postal": "08010",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "934567890",
+    "fax": "934567881",
+    "nif": "B2345678Q"
+  },
+  {
+    "_id": "proveidor-3",
+    "nom": "Mundo Vision",
+    "adreca": [
+      {
+        "carrer": "Passeig de Gracia",
+        "numero": 44,
+        "codi_postal": "08007",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "932345678",
+    "fax": "932345679",
+    "nif": "C3456789Q"
+  },
+  {
+    "_id": "proveidor-4",
+    "nom": "Lentes Global",
+    "adreca": [
+      {
+        "carrer": "Ronda de Sant Pere",
+        "numero": 98,
+        "codi_postal": "08010",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "936789012",
+    "fax": "936789013",
+    "nif": "D4567890Q"
+  },
+  {
+    "_id": "proveidor-5",
+    "nom": "Optica Mediterranea",
+    "adreca": [
+      {
+        "carrer": "Av. Paral·lel",
+        "numero": 54,
+        "codi_postal": "08015",
+        "ciutat": "Barcelona",
+        "pais": "Espanya"
+      }
+    ],
+    "telefon": "937890123",
+    "fax": "937890124",
+    "nif": "E5678901Q"
+  }
+],
+[
+  {
+    "_id": "ulleres-1",
+    "marca": "Rayban",
+    "graduacio_vidres": {"dret": 0.5, "esquerre": 0.75},
+    "muntura": "flotant",
+    "color_muntura": "negre",
+    "color_vidres": {"dret": "blau", "esquerre": "gris"},
+    "preu": 120,
+    "proveidors": [{"nom": "Vision Inc.", "id": "proveidor-1"}],
+    "compradors": [{"nom": "Joan Garcia", "id": "client-1"}, {"nom": "Ana Perez", "id": "client-2"}, {"nom": "Maria Martinez", "id": "client-3"}]
+  },
+  {
+    "_id": "ulleres-2",
+    "marca": "Oakley",
+    "graduacio_vidres": {"dret": 0.6, "esquerre": 1.2},
+    "muntura": "flotant",
+    "color_muntura": "blau",
+    "color_vidres": {"dret": "verd", "esquerre": "gris"},
+    "preu": 135,
+    "proveidors": [{"nom": "Optica Universal", "id": "proveidor-2"}]
+  },
+  {
+    "_id": "ulleres-3",
+    "marca": "Persol",
+    "graduacio_vidres": {"dret": 1.0, "esquerre": 0.9},
+    "muntura": "metal",
+    "color_muntura": "gris",
+    "color_vidres": {"dret": "marron", "esquerre": "marron"},
+    "preu": 150,
+    "proveidors": [{"nom": "Mundo Vision", "id": "proveidor-3"}],
+    "compradors": [{"nom": "Luis Alvarez", "id": "client-3"}]
+  },
+  {
+    "_id": "ulleres-4",
+    "marca": "Prada",
+    "graduacio_vidres": {"dret": 0.75, "esquerre": 0.85},
+    "muntura": "pastilla",
+    "color_muntura": "vermell",
+    "color_vidres": {"dret": "negre", "esquerre": "negre"},
+    "preu": 180,
+    "proveidors": [{"nom": "Lentes Global", "id": "proveidor-4"}],
+    "compradors": [{"nom": "Maria Martinez", "id": "client-4"}]
+  },
+  {
+    "_id": "ulleres-5",
+    "marca": "Versace",
+    "graduacio_vidres": {"dret": 0.4, "esquerre": 0.4},
+    "muntura": "flotant",
+    "color_muntura": "daurat",
+    "color_vidres": {"dret": "transparent", "esquerre": "transparent"},
+    "preu": 200,
+    "proveidors": [{"nom": "Optica Mediterranea", "id": "proveidor-5"}],
+    "compradors": [{"nom": "Carlos Gomez", "id": "client-5"}]
+  }
+]
+]

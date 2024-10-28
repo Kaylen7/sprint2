@@ -1,0 +1,56 @@
+[
+	{
+    "_id": "ulleres-1",
+    "marca": "Rayban",
+    "graduacio_vidres": {"dret": 0.5, "esquerre": 0.75},
+    "muntura": "flotant",
+    "color_muntura": "negre",
+    "color_vidres": {"dret": "blau", "esquerre": "gris"},
+    "preu": 120,
+    "proveidors": [{"nom": "Vision Inc.", "id": "proveidor-1"}],
+    "compradors": [{"nom": "Joan Garcia", "id": "client-1"}, {"nom": "Ana Perez", "id": "client-2"}, {"nom": "Maria Martinez", "id": "client-3"}]
+  },
+  {
+    "_id": "ulleres-2",
+    "marca": "Oakley",
+    "graduacio_vidres": {"dret": 0.6, "esquerre": 1.2},
+    "muntura": "flotant",
+    "color_muntura": "blau",
+    "color_vidres": {"dret": "verd", "esquerre": "gris"},
+    "preu": 135,
+    "proveidors": [{"nom": "Optica Universal", "id": "proveidor-2"}]
+  },
+  {
+    "_id": "ulleres-3",
+    "marca": "Persol",
+    "graduacio_vidres": {"dret": 1.0, "esquerre": 0.9},
+    "muntura": "metal",
+    "color_muntura": "gris",
+    "color_vidres": {"dret": "marron", "esquerre": "marron"},
+    "preu": 150,
+    "proveidors": [{"nom": "Mundo Vision", "id": "proveidor-3"}],
+    "compradors": [{"nom": "Luis Alvarez", "id": "client-3"}]
+  },
+  {
+    "_id": "ulleres-4",
+    "marca": "Prada",
+    "graduacio_vidres": {"dret": 0.75, "esquerre": 0.85},
+    "muntura": "pastilla",
+    "color_muntura": "vermell",
+    "color_vidres": {"dret": "negre", "esquerre": "negre"},
+    "preu": 180,
+    "proveidors": [{"nom": "Lentes Global", "id": "proveidor-4"}],
+    "compradors": [{"nom": "Maria Martinez", "id": "client-4"}]
+  },
+  {
+    "_id": "ulleres-5",
+    "marca": "Versace",
+    "graduacio_vidres": {"dret": 0.4, "esquerre": 0.4},
+    "muntura": "flotant",
+    "color_muntura": "daurat",
+    "color_vidres": {"dret": "transparent", "esquerre": "transparent"},
+    "preu": 200,
+    "proveidors": [{"nom": "Optica Mediterranea", "id": "proveidor-5"}],
+    "compradors": [{"nom": "Carlos Gomez", "id": "client-5"}]
+  }
+]

@@ -1,0 +1,52 @@
+[
+	{
+    "_id": "empleat-1",
+    "nom": "Marc Sanchez",
+    "adreca": [{"carrer": "Carrer de Pau Claris", "numero": 30, "codi_postal": "08010", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "658741239",
+    "email": "marc.sanchez@example.com",
+    "dni": "1234567N",
+    "data_registre": {"$date": "2020-03-15T18:30:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-1", "id-client": "client-1", "preu": 120, "data": "2023-10-01T00:00:00Z"}]
+  },
+  {
+    "_id": "empleat-2",
+    "nom": "Laura Jimenez",
+    "adreca": [{"carrer": "Carrer d'Arago", "numero": 45, "codi_postal": "08015", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "653212789",
+    "email": "laura.jimenez@example.com",
+    "dni": "2345678N",
+    "data_registre": {"$date": "2021-06-22T00:00:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-1", "id-client": "client-2", "preu": 120, "data": "2023-09-10T00:00:00Z"}]
+  },
+  {
+    "_id": "empleat-3",
+    "nom": "Jordi Ruiz",
+    "adreca": [{"carrer": "Carrer de Balmes", "numero": 120, "codi_postal": "08008", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "651234567",
+    "email": "jordi.ruiz@example.com",
+    "dni": "3456789N",
+    "data_registre": {"$date": "2020-11-01T00:00:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-3", "id-client": "client-3", "preu": 150, "data": "2023-08-15T00:00:00Z"}]
+  },
+  {
+    "_id": "empleat-4",
+    "nom": "Ana Lopez",
+    "adreca": [{"carrer": "Carrer de Girona", "numero": 75, "codi_postal": "08009", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "654321789",
+    "email": "ana.lopez@example.com",
+    "dni": "4567890N",
+    "data_registre": {"$date": "2019-05-15T00:00:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-4", "id-client": "client-4", "preu": 180, "data": "2023-07-25T00:00:00Z"}, {"id-ulleres": "ulleres-1", "id-client": "client-4", "preu": 120, "data": "2023-09-10T00:00:00Z"}]
+  },
+  {
+    "_id": "empleat-5",
+    "nom": "Pedro Garcia",
+    "adreca": [{"carrer": "Carrer del Consell de Cent", "numero": 98, "codi_postal": "08011", "ciutat": "Barcelona", "pais": "Espanya"}],
+    "telefon": "657891234",
+    "email": "pedro.garcia@example.com",
+    "dni": "5678901N",
+    "data_registre": {"$date": "2018-02-20T00:00:00Z"},
+    "ventes": [{"id-ulleres": "ulleres-5", "id-client": "client-5", "preu": 200, "data": "2023-06-30T00:00:00Z"}]
+  }
+]
