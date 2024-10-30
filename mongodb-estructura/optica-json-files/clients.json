@@ -14,7 +14,15 @@
     "telefon": 654321789,
     "email": "joan.garcia@example.com",
     "data_registre": {"$date": "2023-10-01T00:00:00Z"},
-    "compres": [{"id": "ulleres-1", "data": {"$date": "2023-10-01T00:00:00Z"}}],
+    "compres": [{"compra": {
+    "_id": "ulleres-1",
+    "marca": "Rayban",
+    "graduacio_vidres": {"dret": 0.5, "esquerre": 0.75},
+    "muntura": "flotant",
+    "color_muntura": "negre",
+    "color_vidres": {"dret": "blau", "esquerre": "gris"},
+    "preu": 120
+    }, "data": {"$date": "2023-10-01T00:00:00Z"}}],
     "recomanat_per": "empleat-1"
   },
   {
@@ -32,7 +40,15 @@
     "telefon": 654123456,
     "email": "ana.perez@example.com",
     "data_registre": {"$date": "2023-09-15T00:00:00Z"},
-    "compres": [{"id": "ulleres-1", "data": {"$date": "2023-09-10T00:00:00Z"}}],
+    "compres": [{"compra": {
+    "_id": "ulleres-1",
+    "marca": "Rayban",
+    "graduacio_vidres": {"dret": 0.5, "esquerre": 0.75},
+    "muntura": "flotant",
+    "color_muntura": "negre",
+    "color_vidres": {"dret": "blau", "esquerre": "gris"},
+    "preu": 120
+  }, "data": {"$date": "2023-09-10T00:00:00Z"}}],
     "recomanat_per": "client-1"
   },
   {
@@ -50,7 +66,15 @@
     "telefon": 678123456,
     "email": "luis.alvarez@example.com",
     "data_registre": {"$date": "2023-08-20T00:00:00Z"},
-    "compres": [{"id": "ulleres-3", "data": {"$date": "2023-08-15T00:00:00Z"}}]
+    "compres": [{"compra": {
+    "_id": "ulleres-3",
+    "marca": "Persol",
+    "graduacio_vidres": {"dret": 1.0, "esquerre": 0.9},
+    "muntura": "metal",
+    "color_muntura": "gris",
+    "color_vidres": {"dret": "marron", "esquerre": "marron"},
+    "preu": 150
+  }, "data": {"$date": "2023-08-15T00:00:00Z"}}]
   },
   {
     "_id": "client-4",
@@ -67,7 +91,23 @@
     "telefon": 654321987,
     "email": "maria.martinez@example.com",
     "data_registre": {"$date": "2023-07-10T00:00:00Z"},
-    "compres": [{"id": "ulleres-4", "data": {"$date": "2023-07-25T00:00:00Z"}}, {"id": "ulleres-1", "data": {"$date":"2023-09-10T00:00:00Z"}}]
+    "compres": [{"compra": {
+    "_id": "ulleres-4",
+    "marca": "Prada",
+    "graduacio_vidres": {"dret": 0.75, "esquerre": 0.85},
+    "muntura": "pastilla",
+    "color_muntura": "vermell",
+    "color_vidres": {"dret": "negre", "esquerre": "negre"},
+    "preu": 180
+  }, "data": {"$date": "2023-07-25T00:00:00Z"}}, {"compra":{
+    "_id": "ulleres-1",
+    "marca": "Rayban",
+    "graduacio_vidres": {"dret": 0.5, "esquerre": 0.75},
+    "muntura": "flotant",
+    "color_muntura": "negre",
+    "color_vidres": {"dret": "blau", "esquerre": "gris"},
+    "preu": 120
+  }, "data": {"$date":"2023-09-10T00:00:00Z"}}]
   },
   {
     "_id": "client-5",
@@ -84,7 +124,15 @@
     "telefon": 612345678,
     "email": "carlos.gomez@example.com",
     "data_registre": {"$date": "2023-06-05T00:00:00Z"},
-    "compres": [{"id": "ulleres-5", "data": {"$date": "2023-06-30T00:00:00Z"}}],
+    "compres": [{"compra": {
+    "_id": "ulleres-5",
+    "marca": "Versace",
+    "graduacio_vidres": {"dret": 0.4, "esquerre": 0.4},
+    "muntura": "flotant",
+    "color_muntura": "daurat",
+    "color_vidres": {"dret": "transparent", "esquerre": "transparent"},
+    "preu": 200
+  }, "data": {"$date": "2023-06-30T00:00:00Z"}}],
     "recomanat_per": "empleat-2"
   }
 ]

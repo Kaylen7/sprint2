@@ -127,7 +127,7 @@ create table ulleres
     color_vidre_dret     varchar(10)                           not null,
     color_vidre_esq      varchar(10)                           not null,
     color_muntura        varchar(10)                           not null,
-    preu                 int                                   not null,
+    preu                 float                                 not null,
     constraint ulleres_marca__fk
         foreign key (id_marca) references marca (id)
 );
