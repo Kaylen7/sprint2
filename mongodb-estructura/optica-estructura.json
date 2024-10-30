@@ -22,7 +22,7 @@
     "muntura": "flotant",
     "color_muntura": "negre",
     "color_vidres": {"dret": "blau", "esquerre": "gris"},
-    "preu": 120,
+    "preu": 120
     }, "data": {"$date": "2023-10-01T00:00:00Z"}}],
     "recomanat_per": "empleat-1"
   },
@@ -48,7 +48,7 @@
     "muntura": "flotant",
     "color_muntura": "negre",
     "color_vidres": {"dret": "blau", "esquerre": "gris"},
-    "preu": 120,
+    "preu": 120
   }, "data": {"$date": "2023-09-10T00:00:00Z"}}],
     "recomanat_per": "client-1"
   },
@@ -74,7 +74,7 @@
     "muntura": "metal",
     "color_muntura": "gris",
     "color_vidres": {"dret": "marron", "esquerre": "marron"},
-    "preu": 150,
+    "preu": 150
   }, "data": {"$date": "2023-08-15T00:00:00Z"}}]
   },
   {
@@ -99,7 +99,7 @@
     "muntura": "pastilla",
     "color_muntura": "vermell",
     "color_vidres": {"dret": "negre", "esquerre": "negre"},
-    "preu": 180,
+    "preu": 180
   }, "data": {"$date": "2023-07-25T00:00:00Z"}}, {"compra":{
     "_id": "ulleres-1",
     "marca": "Rayban",
@@ -107,7 +107,7 @@
     "muntura": "flotant",
     "color_muntura": "negre",
     "color_vidres": {"dret": "blau", "esquerre": "gris"},
-    "preu": 120,
+    "preu": 120
   }, "data": {"$date":"2023-09-10T00:00:00Z"}}]
   },
   {
@@ -132,7 +132,7 @@
     "muntura": "flotant",
     "color_muntura": "daurat",
     "color_vidres": {"dret": "transparent", "esquerre": "transparent"},
-    "preu": 200,
+    "preu": 200
   }, "data": {"$date": "2023-06-30T00:00:00Z"}}],
     "recomanat_per": "empleat-2"
   }
