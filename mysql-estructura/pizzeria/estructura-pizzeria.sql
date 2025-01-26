@@ -13,22 +13,6 @@ create table clients
         primary key
 );
 
-create table client_adreces
-(
-    carrer      varchar(95) not null,
-    numero      int         not null,
-    pis         int         null,
-    ciutat      varchar(95) not null,
-    codi_postal varchar(10) null,
-    localitat   varchar(50) null,
-    provincia   varchar(50) null,
-    id_client   int         null,
-    id          int auto_increment
-        primary key,
-    constraint client_adreces__fk
-        foreign key (id_client) references clients (id)
-);
-
 create table botigues
 (
     nom           varchar(255)  not null,
@@ -52,7 +36,7 @@ create table empleats
         foreign key (id_botiga) references botigues (id)
 );
 
-create table botiga_adreces
+create table adreces
 (
     carrer      varchar(95) not null,
     numero      int         not null,
@@ -61,11 +45,10 @@ create table botiga_adreces
     codi_postal varchar(10) null,
     localitat   varchar(50) null,
     provincia   varchar(50) null,
-    id_botiga   int         not null,
+    id_usuari   int         not null,
+    tipus       enum('client', 'botiga') not null,
     id          int auto_increment
-        primary key,
-    constraint botiga_adreces__fk
-        foreign key (id_botiga) references botigues (id)
+        primary key
 );
 
 create table comandes
@@ -75,14 +58,14 @@ create table comandes
     data  datetime default current_timestamp,
     id_client int not null,
     id_botiga int not null,
-    id_empleat_botiga int null,
+    id_repartidor int null,
     a_domicili  bool default false,
     constraint id_client__comandes__fk
         foreign key (id_client) references clients (id),
     constraint id_botiga__comandes__fk
         foreign key (id_botiga) references botigues (id),
-    constraint id_empleat__comandes__fk
-        foreign key (id_empleat_botiga) references empleats (id)
+    constraint id_repartidor__comandes__fk
+        foreign key (id_repartidor) references empleats (id)
 );
 
 create table comanda_a_domicili
@@ -114,23 +97,12 @@ create table comanda_productes
     id      int auto_increment
         primary key,
     id_producte int not null,
+    id_comanda  int not null,
     quantitat   int default 1,
 
     constraint id_producte__comanda_productes__fk
-        foreign key (id_producte) references productes (id)
-);
-
-create table comanda_pasarela_productes
-(
-    id            int auto_increment
-        primary key,
-    id_comanda    int not null,
-    id_productes  int not null,
-
-    constraint id_comanda__pasarela__fk
-        foreign key (id_comanda) references comandes (id),
-    constraint id_productes__pasarela__fk
-        foreign key (id_productes) references comanda_productes (id)
+        foreign key (id_producte) references productes (id),
+        foreign key (id_comanda) references comandes (id)
 );
 
 create table pizza_categories
@@ -192,12 +164,12 @@ INSERT INTO empleats (nom, cognom1, cognom2, nif, telefon, email, carrec, id_bot
 ('Jordi', 'Esteve', 'Ferrer', '433456789', 'S67891234', 'jordi.esteve@example.com', 'cuina', 5);
 
 
-INSERT INTO comandes (data, id_client, id_botiga, a_domicili, id_empleat_botiga) VALUES
-('2024-10-16 12:30:00', 1, 1, 1, null),
-('2024-10-16 13:00:00', 2, 2, 0, 4),
-('2024-10-16 14:00:00', 3, 3, 1, null),
-('2024-10-16 12:45:00', 4, 1, 1, null),
-('2024-10-16 13:15:00', 5, 2, 0, 5);
+INSERT INTO comandes (data, id_client, id_botiga, a_domicili, id_repartidor) VALUES
+('2024-10-16 12:30:00', 1, 1, 1, 4),
+('2024-10-16 13:00:00', 2, 2, 0, null),
+('2024-10-16 14:00:00', 3, 3, 1, 5),
+('2024-10-16 12:45:00', 4, 1, 1, 4),
+('2024-10-16 13:15:00', 5, 2, 0, null);
 
 INSERT INTO productes (tipus, nom, descripcio, imatge, preu)VALUES
 ('pizza', 'Margarita', 'Pizza Margarita clàssica', 'image1.png', 8),
@@ -220,33 +192,24 @@ INSERT INTO producte_pizza_categories (id_producte, id_categoria) VALUES
 (4, 4),
 (5, 5);
 
-INSERT INTO comanda_productes (id_producte, quantitat) VALUES
-(1, 2),
-(2, 1),
-(3, 5),
-(4, 3),
-(5, 4);
+INSERT INTO comanda_productes (id_producte, id_comanda, quantitat) VALUES
+(1, 2, 2),
+(2, 1, 1),
+(3, 5, 5),
+(4, 3, 3),
+(5, 4, 4);
 
-INSERT INTO botiga_adreces (carrer, numero, pis, ciutat, codi_postal, localitat, provincia, id_botiga) VALUES
-('Carrer Mallorca', 101, 1, 'Barcelona', '08036', 'Barcelona', 'Barcelona', 1),
-('Carrer Gran de Gràcia', 132, 3, 'Barcelona', '08012', 'Barcelona', 'Barcelona', 2),
-('Carrer Major', 45, 2, 'Girona', '17001', 'Girona', 'Girona', 3),
-('Rambla Nova', 67, 4, 'Tarragona', '43001', 'Tarragona', 'Tarragona', 4),
-('Carrer de la Pau', 23, 1, 'Lleida', '25001', 'Lleida', 'Lleida', 5);
-
-INSERT INTO client_adreces (carrer, numero, pis, ciutat, codi_postal, localitat, provincia, id_client) VALUES
-('Carrer Aragó', 15, 3, 'Barcelona', '08015', 'Barcelona', 'Barcelona', 1),
-('Carrer del Sol', 7, 2, 'Sabadell', '08201', 'Barcelona', 'Barcelona', 2),
-('Avinguda Diagonal', 201, 1, 'Barcelona', '08018', 'Barcelona', 'Barcelona', 3),
-('Carrer València', 102, 5, 'Barcelona', '08010', 'Barcelona', 'Barcelona', 3),
-('Passeig de Gràcia', 200, 2, 'Barcelona', '08008', 'Barcelona', 'Barcelona', 5);
-
-INSERT INTO comanda_pasarela_productes (id_comanda, id_productes) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5);
+INSERT INTO adreces (carrer, numero, pis, ciutat, codi_postal, localitat, provincia, id_usuari, tipus) VALUES
+('Carrer Mallorca', 101, 1, 'Barcelona', '08036', 'Barcelona', 'Barcelona', 1, 'botiga'),
+('Carrer Gran de Gràcia', 132, 3, 'Barcelona', '08012', 'Barcelona', 'Barcelona', 2, 'botiga'),
+('Carrer Major', 45, 2, 'Girona', '17001', 'Girona', 'Girona', 3, 'botiga'),
+('Rambla Nova', 67, 4, 'Tarragona', '43001', 'Tarragona', 'Tarragona', 4, 'botiga'),
+('Carrer de la Pau', 23, 1, 'Lleida', '25001', 'Lleida', 'Lleida', 5, 'botiga'),
+('Carrer Aragó', 15, 3, 'Barcelona', '08015', 'Barcelona', 'Barcelona', 1, 'client'),
+('Carrer del Sol', 7, 2, 'Sabadell', '08201', 'Barcelona', 'Barcelona', 2, 'client'),
+('Avinguda Diagonal', 201, 1, 'Barcelona', '08018', 'Barcelona', 'Barcelona', 3, 'client'),
+('Carrer València', 102, 5, 'Barcelona', '08010', 'Barcelona', 'Barcelona', 3, 'client'),
+('Passeig de Gràcia', 200, 2, 'Barcelona', '08008', 'Barcelona', 'Barcelona', 5, 'client');
 
 
 INSERT INTO comanda_a_domicili (id_comanda, id_repartiment) VALUES

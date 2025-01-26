@@ -22,28 +22,6 @@ INSERT INTO client (nom, telefon, email, data_registre, recomanat_per) VALUES
 ('Bob Brown', '666666666', 'bob.brown@example.com', '2024-01-15', 1),
 ('Charlie White', '777777777', 'charlie.white@example.com', '2024-01-20', 2);
 
-create table adreca_client
-(
-    carrer      varchar(95) not null,
-    numero      int         not null,
-    pis         int         null,
-    ciutat      varchar(95) not null,
-    codi_postal varchar(10) null,
-    pais        varchar(50) null,
-    id_client   int         null,
-    id          int auto_increment
-        primary key,
-    constraint adreca_client__fk
-        foreign key (id_client) references client (id)
-);
-
-INSERT INTO adreca_client (carrer, numero, pis, ciutat, codi_postal, pais, id_client) VALUES
-('Carrer Major', 123, 2, 'Barcelona', '08001', 'Spain', 1),
-('Gran Via', 45, 4, 'Madrid', '28013', 'Spain', 2),
-('Avinguda Diagonal', 100, NULL, 'Barcelona', '08028', 'Spain', 3),
-('Carrer del Raval', 10, 1, 'Barcelona', '08001', 'Spain', 1),
-('Carrer de la Pau', 5, NULL, 'Valencia', '46001', 'Spain', 4);
-
 create table empleat
 (
     id  int auto_increment
@@ -77,27 +55,29 @@ INSERT INTO proveidor (nom, telefon, fax, nif) VALUES
 ('Supplier Four', '666666666', 'F66666666', 'NIF22222'),
 ('Supplier Five', '777777777', 'F77777777', 'NIF33333');
 
-create table adreca_proveidor
-(
-    carrer       varchar(95) not null,
-    numero       int         not null,
-    pis          int         null,
-    ciutat       varchar(95) not null,
-    codi_postal  varchar(10) null,
-    pais         varchar(50) null,
-    id_proveidor int         null,
-    id           int auto_increment
-        primary key,
-    constraint adreca_proveidor__fk
-        foreign key (id_proveidor) references proveidor (id)
+create table adreces (
+    carrer      varchar(95) not null,
+    numero      int         not null,
+    pis         int         null,
+    ciutat      varchar(95) not null,
+    codi_postal varchar(10) null,
+    pais        varchar(50) null,
+    id_referencia   int         not null,
+    tipus       enum('client', 'proveidor') not null,
+    id          int auto_increment primary key
 );
 
-INSERT INTO adreca_proveidor (carrer, numero, pis, ciutat, codi_postal, pais, id_proveidor) VALUES
-('Carrer de les Flors', 12, NULL, 'Barcelona', '08002', 'Spain', 1),
-('Carrer de la Mar', 34, 1, 'Valencia', '46002', 'Spain', 2),
-('Carrer de la Llum', 56, NULL, 'Madrid', '28002', 'Spain', 3),
-('Carrer de la Pau', 78, 2, 'Barcelona', '08003', 'Spain', 4),
-('Carrer del Sol', 90, 3, 'Sevilla', '41001', 'Spain', 5);
+INSERT INTO adreces (carrer, numero, pis, ciutat, codi_postal, pais, id_referencia, tipus) VALUES
+('Carrer Major', 123, 2, 'Barcelona', '08001', 'Spain', 1, 'client'),
+('Gran Via', 45, 4, 'Madrid', '28013', 'Spain', 2, 'client'),
+('Avinguda Diagonal', 100, NULL, 'Barcelona', '08028', 'Spain', 3, 'client'),
+('Carrer del Raval', 10, 1, 'Barcelona', '08001', 'Spain', 1, 'client'),
+('Carrer de la Pau', 5, NULL, 'Valencia', '46001', 'Spain', 4, 'client'),
+('Carrer de les Flors', 12, NULL, 'Barcelona', '08002', 'Spain', 1, 'proveidor'),
+('Carrer de la Mar', 34, 1, 'Valencia', '46002', 'Spain', 2, 'proveidor'),
+('Carrer de la Llum', 56, NULL, 'Madrid', '28002', 'Spain', 3, 'proveidor'),
+('Carrer de la Pau', 78, 2, 'Barcelona', '08003', 'Spain', 4, 'proveidor'),
+('Carrer del Sol', 90, 3, 'Sevilla', '41001', 'Spain', 5, 'proveidor');
 
 create table marca
 (
@@ -127,7 +107,7 @@ create table ulleres
     color_vidre_dret     varchar(10)                           not null,
     color_vidre_esq      varchar(10)                           not null,
     color_muntura        varchar(10)                           not null,
-    preu                 float                                 not null,
+    preu                 decimal                                 not null,
     constraint ulleres_marca__fk
         foreign key (id_marca) references marca (id)
 );
