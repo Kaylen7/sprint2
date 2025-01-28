@@ -58,14 +58,11 @@ create table comandes
     data  datetime default current_timestamp,
     id_client int not null,
     id_botiga int not null,
-    id_repartidor int null,
     a_domicili  bool default false,
     constraint id_client__comandes__fk
         foreign key (id_client) references clients (id),
     constraint id_botiga__comandes__fk
-        foreign key (id_botiga) references botigues (id),
-    constraint id_repartidor__comandes__fk
-        foreign key (id_repartidor) references empleats (id)
+        foreign key (id_botiga) references botigues (id)
 );
 
 create table comanda_a_domicili
@@ -74,11 +71,14 @@ create table comanda_a_domicili
         primary key,
     id_comanda  int not null,
     id_repartiment int not null,
+    id_repartidor int not null,
     data_entrega   datetime default current_timestamp,
     constraint id_comanda__comanda_domicili__fk
         foreign key (id_comanda) references comandes(id),
     constraint id_repartiment__comanda_domicili__fk
-        foreign key (id_repartiment) references empleats(id)
+        foreign key (id_repartiment) references empleats(id),
+    constraint id_repartidor__comandes__fk
+        foreign key (id_repartidor) references empleats (id)
 );
 
 create table productes
@@ -164,12 +164,12 @@ INSERT INTO empleats (nom, cognom1, cognom2, nif, telefon, email, carrec, id_bot
 ('Jordi', 'Esteve', 'Ferrer', '433456789', 'S67891234', 'jordi.esteve@example.com', 'cuina', 5);
 
 
-INSERT INTO comandes (data, id_client, id_botiga, a_domicili, id_repartidor) VALUES
-('2024-10-16 12:30:00', 1, 1, 1, 4),
-('2024-10-16 13:00:00', 2, 2, 0, null),
-('2024-10-16 14:00:00', 3, 3, 1, 5),
-('2024-10-16 12:45:00', 4, 1, 1, 4),
-('2024-10-16 13:15:00', 5, 2, 0, null);
+INSERT INTO comandes (data, id_client, id_botiga, a_domicili) VALUES
+('2024-10-16 12:30:00', 1, 1, 1),
+('2024-10-16 13:00:00', 2, 2, 0),
+('2024-10-16 14:00:00', 3, 3, 1),
+('2024-10-16 12:45:00', 4, 1, 1),
+('2024-10-16 13:15:00', 5, 2, 0);
 
 INSERT INTO productes (tipus, nom, descripcio, imatge, preu)VALUES
 ('pizza', 'Margarita', 'Pizza Margarita clàssica', 'image1.png', 8),
@@ -212,7 +212,7 @@ INSERT INTO adreces (carrer, numero, pis, ciutat, codi_postal, localitat, provin
 ('Passeig de Gràcia', 200, 2, 'Barcelona', '08008', 'Barcelona', 'Barcelona', 5, 'client');
 
 
-INSERT INTO comanda_a_domicili (id_comanda, id_repartiment) VALUES
-(1, 1),
-(3, 3),
-(4, 4);
+INSERT INTO comanda_a_domicili (id_comanda, id_repartiment, id_repartidor) VALUES
+(1, 1, 2),
+(3, 3, 2),
+(4, 4, 4);
